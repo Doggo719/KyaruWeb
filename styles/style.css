@@ -1,0 +1,451 @@
+@font-face {
+    font-family: "Taipei Sans TC Beta Regular";
+    src: url("fonts/TaipeiSansTCBeta-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Corporate Mincho ver3";
+    src: url("fonts/Corporate-Mincho-ver3.otf") format("opentype");
+}
+
+@keyframes backgroundAnimation {
+    from {transform: translate(0px);}
+    to {transform: translate(-3500px);}
+}
+
+@keyframes titleBoxAnimation {
+    from {transform: scaleX(0);}
+    to {transform: scaleX(1);}
+}
+
+@keyframes titleAnimation {
+    0%,28% {left: 45px; opacity: 0;}
+    100% {left: 80px; opacity: 1;}
+}
+
+@keyframes subTitleAnimation {
+    0%,66% {left: 45px; opacity: 0;}
+    100% {left: 80px; opacity: 1;}
+}
+
+@keyframes kyaruStandAnimation {
+    0%,50% {transform: translateX(-50px); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes chrIntroductionAnimation {
+    0% {transform: translateY(20px); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes chrTitleAnimation {
+    0%,50% {transform: translateX(-50px); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+html {
+    font-family: 'Taipei Sans TC Beta Regular' ;
+}
+
+body {
+    /*background-image: url("/KyaruWeb/images/kyaru1.jpg");*/
+    background-position: center;
+    background-repeat: repeat;
+    background-size: auto;
+    /*animation-name: test;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;*/
+    background-color: white;
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0;
+    /*padding: 0 20px 20px 20px;*/
+    /*border: 2px solid black;*/
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+    scroll-behavior: smooth;
+}
+  
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+/*.scrollValue {
+    position: fixed;
+    font-size: 20px;
+    color: white;
+    right: 20px;
+    bottom: 20px;
+}*/
+
+.background {
+    width: 7000px;
+    height: 700px;
+    background-image: url('/KyaruWeb/images/smallerKyaruBackground.jpg');
+    background-repeat: repeat-x;
+    position: absolute;
+    /*transform-origin: left top;
+    scale: .8;*/
+    top: 80px;
+    left: 0px;
+    animation-name: backgroundAnimation;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.backgroundDarken {
+    width: 100vw;
+    height: 700px;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    background-color: rgba(45, 45, 45, 0.588);
+}
+
+.pageTopContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background-image: linear-gradient(to top, #39363c 30%, #454049 70%);
+    background-color: #6F61C0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+.pageTopBox {
+    transition: .2s;
+    width: 25vw;
+    font-size: 32px;
+    color: aliceblue;
+    text-align: center;
+    cursor: pointer;
+}
+
+.pageTopBox:hover {
+    transform: translateY(-3px);
+    color: #A084E8;
+}
+
+.titleBox {
+    position: absolute;
+    transform-origin: left;
+    animation-name: titleBoxAnimation;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(.03,.73,.27,.98);
+    top: 400px;
+    left: 45px;
+    width: 640px;
+    height: 200px;
+    background-color: aliceblue;
+}
+
+.title {
+    position: absolute;
+    background-image: linear-gradient(to left top, #295270, #524175);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size: 64px;
+    letter-spacing: 3px;
+    /*text-shadow: rgb(157, 95, 144) 0 0 10px;*/
+    left: 80px;
+    top: 400px;
+    animation-name: titleAnimation;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.07,.5,.47,.98);
+}
+
+.subTitle {
+    position: absolute;
+    background-image: linear-gradient(to left top, #295270, #524175);
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 32px;
+    letter-spacing: 3px;
+    /*text-shadow: rgb(157, 95, 144) 0 0 10px;*/
+    left: 80px;
+    top: 500px;
+    animation-name: subTitleAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(.07,.5,.47,.98)t;
+}
+
+/*.kyaruDisgust {
+    position: absolute;
+    top: 700px;
+    width: 1920px;
+    height: 1080px;
+    transform: translateZ(-10px);
+    z-index: 0;
+    margin: auto;
+    background-image: url(/KyaruWeb/images/kyaruDisgust.png);
+    background-size: cover;
+    background-repeat: repeat-x;
+}*/
+
+.kyaruUniverse {
+    position: absolute;
+    top: 700px;
+    width: 1920px;
+    height: 1080px;
+    transform: translateZ(-1px);
+    z-index: -2;
+    margin: auto;
+    background-image: url(/KyaruWeb/images/kyaruUniverse.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+}
+
+.commentsBackgroundDarken {
+    position: absolute;
+    top: 700px;
+    width: 1920px;
+    height: 1200px;
+    transform: translateZ(-1px);
+    z-index: -1;
+    margin: auto;
+    background-color: rgba(111, 97, 192, 0.793);
+    opacity: 0;
+}
+
+.commentsContainer {
+    position: absolute;
+    display: flex;
+    top: 780px;
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    background-color: transparent;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.commentsBox {
+    width: 100vw;
+    height: 250px;
+    color: aliceblue;
+    opacity: 0;
+    font-size: 64px;
+    line-height: 1;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.notify {
+    transform: translateY(950px);
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    color: aliceblue;
+    opacity: .3;
+}
+
+.commentsBackgroundBottom {
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    top: 1700px;
+    background-color: #293462;
+}
+
+.chrBackground {
+    position: absolute;
+    width: 100vw;
+    height: 1000px;
+    top: 1750px;
+    background-image: url(/KyaruWeb/images/chrBackground.png);
+    background-size: cover;
+    /*filter: blur(3.5px);
+    -webkit-filter: blur(3.5px);*/
+}
+
+.kyaruStand {
+    display: none;
+    width: 650px;
+    height: 953px;
+    scale: .8;
+    background-image: url(/KyaruWeb/images/kyaruStand.png);
+    position: absolute;
+    top: 90px;
+    left: 0px;
+}
+
+.startKyaruStandAnimationClass {
+    animation: kyaruStandAnimation .5s 0s forwards;
+    animation-timing-function: cubic-bezier(.07,.5,.47,.98);
+}
+
+.kyaruVideo {
+    /*560x315*/
+    transition: .2s;
+    position: relative;
+    top: 700px;
+    left: 1000px;
+}
+
+.kyaruVideo:hover {
+    transform: scale(1.05);
+}
+
+.hahaKyaruSing {
+    position: relative;
+    top: 700px;
+    left: 1150px;
+    font-size: 16px;
+    color: aliceblue;
+    opacity: .8;
+}
+
+.chrIntroduction {
+    position: relative;
+    display: block;
+    padding: 30px;
+    top: 20px;
+    left: 600px;
+    width: 800px;
+    height: 300px;
+    background-color: aliceblue;
+    box-shadow:0 0 20px 5px aliceblue;
+    color: gray;
+    line-height: 2;
+    font-size: 20px;
+    font-family: 'Corporate Mincho ver3';
+    letter-spacing: 2px;
+    text-align: justify;
+    border-radius: 10px;
+}
+
+.startChrIntroductionAnimationClass {
+    animation: chrIntroductionAnimation .5s 0s forwards;
+    animation-timing-function: cubic-bezier(.07,.5,.47,.98);
+}
+
+.chrTitle {
+    position: relative;
+    display: none;
+    top: 0px;
+    left: 150px;
+    font-size: 124px;
+    font-family: 'Corporate Mincho ver3';
+    color: aliceblue;
+    text-shadow: 3px 3px 20px #5D3587,
+    -2px 1px 30px #5D3587;
+    letter-spacing: 1px;
+}
+
+.startChrTitleAnimationClass {
+    animation: chrTitleAnimation .7s 0s forwards;
+    animation-timing-function: cubic-bezier(.07,.5,.47,.98);
+}
+
+.chrBackgroundBottom {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    top: 2750px;
+    background-image: linear-gradient(to bottom, #39363c 30%, #454049 70%);
+    font-size: 16px;
+    color: aliceblue;
+    justify-content: center;
+}
+
+.chrBackgroundBottom span {
+    line-height: 2;
+    align-self: flex-end;
+}
+
+.backToTop {
+    position: fixed;
+    display: flex;
+    transition: .2s;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    bottom: 15px;
+    right: 30px;
+    background-color: #524175;
+    color: aliceblue;
+    border-radius: 100%;
+    justify-content: center;
+}
+
+.backToTop:hover {
+    background-color: aliceblue;
+    color: #524175;
+}
+
+.backToTop span {
+    font-size: 32px;
+    align-self: center;
+}
+
+#comment1 {
+    text-align: start;
+    transform: translateX(20vw);
+}
+
+#comment2 {
+    text-align: end;
+    transform: translateX(-20vw);
+}
+
+#comment3 {
+    text-align: start;
+    transform: translateX(20vw);
+}
+
+/*animation: kyaruStandAnimation 2s 2s forwards;*/
+/*animation-timing-function: cubic-bezier(.07,.5,.47,.98);*/
+
+/*.imgAnimation {
+    animation-name: imgAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    width: 50%;
+}
+
+.kyaru {
+    transition: .2s;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    scale: .6;
+    background-image: url(/KyaruWeb/images/kyaru1.jpg);
+    background-repeat: no-repeat;
+}
+
+.kyaru:hover {
+    scale: .65;
+    background-image: url(/KyaruWeb/images/kyaru2.jpg);
+    background-repeat: no-repeat;
+}*/
